@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, My Love ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-gold: #e8a598;
+            --deep-rose: #c75b7a;
+            --burgundy: #5c1a1b;
+            --cream: #fff5f5;
+            --soft-shadow: rgba(197, 91, 122, 0.3);
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            background: var(--burgundy);
+            color: var(--cream);
+        }
+        /*music button*/
+                button {
+            border: 3px solid #b1b3b4;
+            background-color: #287bd3;
+            color: white;
+            padding: 10px 20px;
+            margin: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            border-color: #afcff2;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        i {
+            margin-left: 7px;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .video-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(92, 26, 27, 0.7) 0%, rgba(197, 91, 122, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Main Content */
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* Floating Hearts Animation */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float-up 8s infinite ease-in;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Card */
+        .love-card {
+            background: rgba(255, 245, 245, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+            animation: fadeInScale 1.5s ease-out;
+            border: 2px solid rgba(232, 165, 152, 0.3);
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: shimmer 3s infinite;
+            background: linear-gradient(90deg, var(--burgundy), var(--deep-rose), var(--burgundy));
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--deep-rose);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .divider {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--rose-gold), transparent);
+            margin: 2rem auto;
+        }
+
+        .message-section {
+            color: var(--burgundy);
+            line-height: 2;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .message-section p {
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out backwards;
+        }
+
+        .message-section p:nth-child(1) { animation-delay: 0.3s; }
+        .message-section p:nth-child(2) { animation-delay: 0.6s; }
+        .message-section p:nth-child(3) { animation-delay: 0.9s; }
+        .message-section p:nth-child(4) { animation-delay: 1.2s; }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .highlight {
+            color: var(--deep-rose);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .signature {
+            text-align: right;
+            font-size: 1.8rem;
+            color: var(--burgundy);
+            font-style: italic;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 1.5s backwards;
+        }
+
+        .signature::before {
+            content: '~ ';
+        }
+
+        /* Rose Decoration */
+        .rose-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            opacity: 0.15;
+            filter: drop-shadow(0 0 20px var(--deep-rose));
+        }
+
+        .rose-top-left {
+            top: -30px;
+            left: -30px;
+            transform: rotate(-15deg);
+        }
+
+        .rose-bottom-right {
+            bottom: -30px;
+            right: -30px;
+            transform: rotate(15deg);
+        }
+
+        /* Music Control */
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: rgba(255, 245, 245, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--rose-gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--burgundy);
+            animation: pulse 2s infinite;
+        }
+
+        .music-control:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(197, 91, 122, 0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 15px 40px rgba(197, 91, 122, 0.6);
+            }
+        }
+
+        .music-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Start Screen */
+        .start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--deep-rose) 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+        }
+
+        .start-content {
+            text-align: center;
+            animation: breathe 2s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .start-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: var(--cream);
+            margin-bottom: 2rem;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .start-instruction {
+            font-size: 1.5rem;
+            color: var(--cream);
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .start-heart {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.1); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .love-card {
+                padding: 2.5rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .message-section {
+                font-size: 1.1rem;
+            }
+
+            .start-title {
+                font-size: 2.5rem;
+            }
+
+            .start-heart {
+                font-size: 4rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- Start Screen -->
+    <div class="start-screen" id="startScreen">
+        <div class="start-content">
+            <div class="start-heart">❤️</div>
+            <h1 class="start-title">For My Beloved</h1>
+            <p class="start-instruction">Click anywhere to open your Valentine's surprise</p>
+        </div>
+    </div>
+    
+    <!-- Video Background -->
+    <div class="video-background">
+        <video id="bgVideo" loop muted playsinline>
+            <source src="https://cdn.pixabay.com/video/2023/02/06/149165-797025624_large.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+
+    <!-- Main Content -->
+    <div class="container">
+        <!----Spotify Regardless-->
+     <!--   <!<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/6vbJkwWBaS7iKBHfQJM9ua?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
+        <div class="love-card">
+            <!-- Rose Decorations -->
+            <div class="rose-decoration rose-top-left">🌹</div>
+            <div class="rose-decoration rose-bottom-right">🌹</div>
+
+            <div class="header">
+                <h1 class="title">Happy Valentine's Day</h1>
+                <div class="divider"></div>
+                <p class="subtitle">To the Love of My Life</p>
+            </div>
+
+            <div class="message-section">
+                <p>
+                    My Dearest Love,
+                </p>
+                <p>
+                    From the moment you entered my life, every day has felt like a <span class="highlight">beautiful dream</span>. 
+                    Your smile lights up my darkest days, and your laughter is the <span class="highlight">sweetest melody</span> my heart has ever known.
+                </p>
+                <p>
+                    You are my <span class="highlight">safe haven</span>, my greatest adventure, and my forever home. 
+                    With you, I've discovered a love so pure and true that it takes my breath away every single day.
+                </p>
+                <p>
+                    Thank you for being <span class="highlight">my everything</span> — my best friend, my soulmate, my reason to believe in magic. 
+                    Today and always, I choose you, I cherish you, I love you with <span class="highlight">all that I am</span>.
+                </p>
+                
+            </div>
+
+            <div class="signature">
+                Forever Yours
+            </div>
+        </div>
+    </div>
+
+    
+
+    <audio controls autoplay>
+  
+  <source src="Regardless_spotdown.mp3">
+Your browser does not support the audio element.
+</audio>
+
+    
+
+    <script>
+        // Elements
+        const startScreen = document.getElementById('startScreen');
+        const bgVideo = document.getElementById('bgVideo');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicControl = document.getElementById('musicControl');
+        const musicStatus = document.getElementById('musicStatus');
+        const heartsContainer = document.getElementById('heartsContainer');
+
+        // Start screen click handler
+        startScreen.addEventListener('click', function() {
+            // Fade out start screen
+            startScreen.style.opacity = '0';
+            setTimeout(() => {
+                startScreen.style.display = 'none';
+            }, 500);
+
+            // Start video and music
+            bgVideo.play().catch(e => console.log('Video autoplay prevented:', e));
+            bgMusic.play().catch(e => {
+                console.log('Audio autoplay prevented:', e);
+                musicStatus.textContent = 'Click to Play Music';yy
+            });
+        });
+
+        // Music control
+        let isPlaying = true;
+        musicControl.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (isPlaying) {
+                bgMusic.pause();
+                musicStatus.textContent = 'Music Paused';
+                isPlaying = false;
+            } else {
+                bgMusic.play();
+                musicStatus.textContent = 'Music Playing';
+                isPlaying = true;
+            }
+        });
+
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.textContent = ['❤️', '💕', '💖', '💗', '💓'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heartsContainer.appendChild(heart);
+
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 13000);
+        }
+
+        // Generate hearts periodically
+        setInterval(createHeart, 800);
+
+        // Create initial hearts
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+    </script>
+</body>
+</html>
