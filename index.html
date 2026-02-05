@@ -256,6 +256,30 @@
             animation: pulse 2s infinite;
             
         }
+        /*Yes button*/
+        .yes-button{
+            position: fixed;
+            bottom: 30px;
+            left: 50px;
+            z-index: 1000;
+            background: var(--burgundy);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgb(0, 0, 0);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--rose-gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: pink;
+            animation: pulse 2s infinite;
+        }
+          .yes-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(221, 87, 127, 0.5);
+        }
+        
 
         .music-control:hover {
             transform: scale(1.05);
@@ -272,7 +296,7 @@
         }
            /* Developer Credits */
         .developer-credits {
-            position: fixed;
+            position: relative;
             bottom: 20px;
             left: 20px;
             z-index: 1000;
@@ -441,24 +465,28 @@
                     Aashita
                 </p>
                 <p>
-                    Do you believe in love at first sight? Yeah even I did not, <span class="highlight">untill I met you</span>. 
-                    It felt something different, since then I was restless.
+                    Do you believe in love at first sight? Yeah even I did not, <span class="highlight">until I met you</span>. 
+                    It felt something different, since then I am restless.
                 </p>
                 <p>
-                    Somebody said "agar koi insaan pasand aaye toh effort maaro". <span class="highlight">And here I am with my effort</span>, I am very nervous right now, but still doing this, 
-                    <span class ="highlight"> kyunki saala regret nahi hona chaiye </span>
+                    Somebody said "agar koi insaan pasand aaye toh effort maaro". <span class="highlight">So here I am, making an effort</span>, I am very nervous right now, but still doing this, 
+                    <span class ="highlight"> kyunki saala regret nahi hona chahiye </span>
                 </p>
                 <p>
                     Let us meet once, lets explore ourselves, what if it works!?<br> <span class="highlight"> I tried to act cool, but my heart gave me a way,<BR>
 You walked in casually and changed my whole day.<br>
-making a website is my style <br>
-
-
 So before I overthink or cross another sign,<br>
-I didn't know your name, so I named you "mine"<br>
-Aashita! Will you be my VALENTINE!</span>
+Making a website is my style. <br>
+I didn't know your name then, so I named you "mine".<br>
+Aashita! Will you be my VALENTINE?!</span>
                 </p>
             </div>
+
+            <!--Yes button-->
+
+            <div class ="yes-button" id = "yesbtn" >
+            Yes!!
+        </div>
 
             <div class="signature">
                 Himanish
@@ -476,6 +504,8 @@ Aashita! Will you be my VALENTINE!</span>
     <audio id="bgMusic" loop>
         <source src="Nazarein Utaarun_spotdown.mp3" type="audio/mpeg">
     </audio>
+    
+    
 
     <!-- Developer Credits -->
     <div class="developer-credits">
@@ -506,6 +536,7 @@ Aashita! Will you be my VALENTINE!</span>
         const musicControl = document.getElementById('musicControl');
         const musicStatus = document.getElementById('musicStatus');
         const heartsContainer = document.getElementById('heartsContainer');
+        const yesbtn = document.getElementById('yesbtn');
 
         // Start screen click handler
         startScreen.addEventListener('click', function() {
@@ -529,7 +560,7 @@ Aashita! Will you be my VALENTINE!</span>
         // Update music status after music starts
         bgMusic.addEventListener('play', function() {
             isPlaying = true;
-            musicStatus.textContent = 'Music Playing';
+            musicStatus.textContent = 'Click to Pause music';
         });
         
         bgMusic.addEventListener('pause', function() {
@@ -548,7 +579,9 @@ Aashita! Will you be my VALENTINE!</span>
                 });
             }
         });
-
+        yesbtn.addEventListener('click', () => {
+    window.location.href = "https://wa.me/+917303985763?text=Hey";
+});
         // Create floating hearts
         function createHeart() {
             const heart = document.createElement('div');
